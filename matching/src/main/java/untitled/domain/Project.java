@@ -20,14 +20,17 @@ public class Project {
 
     private String duration;
 
+    @Embedded
     private Money budget;
 
     private String manager;
 
+    @Embedded
     private Email managerEmail;
 
     private String client;
 
+    @ElementCollection
     private List<File> files;
 
     public static ProjectRepository repository() {

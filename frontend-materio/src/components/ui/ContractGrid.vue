@@ -102,8 +102,8 @@
                     <v-card-text>
                         <div>
                             <String label="이름" v-model="selectedRow.name" :editMode="true"/>
-                            < label="시작일" v-model="selectedRow.startDate" :editMode="true"/>
-                            < label="종료일" v-model="selectedRow.endDate" :editMode="true"/>
+                            <Date label="시작일" v-model="selectedRow.startDate" :editMode="true"/>
+                            <Date label="종료일" v-model="selectedRow.endDate" :editMode="true"/>
                             <v-divider class="border-opacity-100 my-divider"></v-divider>
                             <v-layout row justify-end>
                                 <v-btn
@@ -127,7 +127,7 @@ import { ref } from 'vue';
 import { useTheme } from 'vuetify';
 import BaseGrid from '../base-ui/BaseGrid.vue'
 import Contract from '../Contract.vue'
-import  from '../primitives/.vue'
+import Date from '../primitives/Date.vue'
 import UpdateContract from '../UpdateContract.vue'
 
 export default {
@@ -135,7 +135,7 @@ export default {
     mixins:[BaseGrid],
     components:{
         Contract,
-        ,
+        Date,
         UpdateContract,
     },
     data: () => ({

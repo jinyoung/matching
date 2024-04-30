@@ -39,11 +39,14 @@
                             <td class="font-semibold">{{ idx + 1 }}</td>
                             <td class="whitespace-nowrap" label="제목">{{ val.title }}</td>
                             <td class="whitespace-nowrap" label="기간">{{ val.duration }}</td>
-                            <td class="whitespace-nowrap" label="예산">{{ val.budget }}</td>
+                            <td class="whitespace-nowrap" label="예산">
+                                <Money :editMode="false" :inList="true" v-model="val.budget"></Money>
+                            </td>
                             <td class="whitespace-nowrap" label="담당자">{{ val.manager }}</td>
-                            <td class="whitespace-nowrap" label="담당자(이메일)">{{ val.managerEmail }}</td>
+                            <td class="whitespace-nowrap" label="담당자(이메일)">
+                                <Email :editMode="false" :inList="true" v-model="val.managerEmail"></Email>
+                            </td>
                             <td class="whitespace-nowrap" label="클라이언트">{{ val.client }}</td>
-                            <td class="whitespace-nowrap" label="파일">{{ val.files }}</td>
                             <Icon style="margin-top: 15px;" icon="mi:delete" @click="deleteRow(val)" />
                         </tr>
                     </tbody>
@@ -107,6 +110,8 @@
                             <String label="기간" v-model="selectedRow.duration" :editMode="true"/>
                             <String label="담당자" v-model="selectedRow.manager" :editMode="true"/>
                             <String label="클라이언트" v-model="selectedRow.client" :editMode="true"/>
+                            <Money offline label="예산" v-model="selectedRow.budget" :editMode="true"/>
+                            <Email offline label="담당자(이메일)" v-model="selectedRow.managerEmail" :editMode="true"/>
                             <v-divider class="border-opacity-100 my-divider"></v-divider>
                             <v-layout row justify-end>
                                 <v-btn
@@ -131,6 +136,8 @@ import { useTheme } from 'vuetify';
 import BaseGrid from '../base-ui/BaseGrid.vue'
 import Project from '../Project.vue'
 import String from '../primitives/String.vue'
+import Money from '../vo/Money.vue'
+import Email from '../vo/Email.vue'
 
 export default {
     name: 'projectGrid',
@@ -138,6 +145,8 @@ export default {
     components:{
         Project,
         String,
+        Money,
+        Email,
     },
     data: () => ({
         path: 'projects',

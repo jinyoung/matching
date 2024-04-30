@@ -129,9 +129,9 @@
                 'projectId': '',
                 'title': '',
                 'duration': '',
-                'budget': '',
+                'budget': {},
                 'manager': '',
-                'managerEmail': '',
+                'managerEmail': {},
                 'client': '',
                 'files': [],
             }

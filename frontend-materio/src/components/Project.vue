@@ -5,6 +5,8 @@
         <String label="기간" v-model="value.duration" :editMode="editMode"/>
         <String label="담당자" v-model="value.manager" :editMode="editMode"/>
         <String label="클라이언트" v-model="value.client" :editMode="editMode"/>
+        <Money offline label="예산" v-model="value.budget" :editMode="editMode" @change="change"/>
+        <Email offline label="담당자(이메일)" v-model="value.managerEmail" :editMode="editMode" @change="change"/>
 
         <v-divider class="border-opacity-100 my-divider"></v-divider>
         <v-layout row justify-end>
