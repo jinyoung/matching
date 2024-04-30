@@ -17,8 +17,8 @@
 
         <v-card-text>
             <String v-if="editMode" label="이름" v-model="value.name" :editMode="editMode" :inputUI="'TEXT'"/>
-            <Date label="시작일" v-model="value.startDate" :editMode="editMode" :inputUI="'TEXT'"/>
-            <Date label="종료일" v-model="value.endDate" :editMode="editMode" :inputUI="'TEXT'"/>
+            <Date label="시작일" v-model="value.startDate" :editMode="editMode" :inputUI="''"/>
+            <Date label="종료일" v-model="value.endDate" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions>

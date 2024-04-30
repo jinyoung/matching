@@ -1,4 +1,4 @@
-package untitled.domain;
+package project.domain;
 
 import java.util.Date;
 import java.util.List;

@@ -1,4 +1,4 @@
-package untitled.infra;
+package project.infra;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,8 +9,8 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.transaction.support.TransactionSynchronizationAdapter;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 import org.springframework.util.MimeTypeUtils;
-import untitled.ContractApplication;
-import untitled.config.kafka.KafkaProcessor;
+import project.MatchingApplication;
+import project.config.kafka.KafkaProcessor;
 
 //<<< Clean Arch / Outbound Adaptor
 public class AbstractEvent {
@@ -32,7 +32,7 @@ public class AbstractEvent {
         /**
          * spring streams 방식
          */
-        KafkaProcessor processor = ContractApplication.applicationContext.getBean(
+        KafkaProcessor processor = MatchingApplication.applicationContext.getBean(
             KafkaProcessor.class
         );
         MessageChannel outputChannel = processor.outboundTopic();

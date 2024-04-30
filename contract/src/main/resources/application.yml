@@ -31,12 +31,12 @@ spring:
         event-in:
           group: contract
 #<<< EDA / Topic Name
-          destination: untitled
+          destination: project
 #>>> EDA / Topic Name
           contentType: application/json
         event-out:
 #<<< EDA / Topic Name
-          destination: untitled
+          destination: project
 #>>> EDA / Topic Name
           contentType: application/json
 
@@ -75,10 +75,10 @@ spring:
       bindings:
         event-in:
           group: contract
-          destination: untitled
+          destination: project
           contentType: application/json
         event-out:
-          destination: untitled
+          destination: project
           contentType: application/json
 
 

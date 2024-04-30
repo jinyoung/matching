@@ -1,4 +1,4 @@
-package untitled.config.kafka;
+package project.config.kafka;
 
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.Output;

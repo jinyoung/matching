@@ -1,4 +1,4 @@
-package untitled.domain;
+package project.domain;
 
 import java.util.Date;
 import java.util.List;
@@ -13,12 +13,8 @@ import org.springframework.beans.BeanUtils;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class File {
+public class Email {
 
-    @Lob
-    private String fileName;
-
-    @Lob
-    private String file;
+    private String email;
 }
 //>>> DDD / Value Object

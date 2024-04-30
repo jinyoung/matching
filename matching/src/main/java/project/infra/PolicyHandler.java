@@ -1,4 +1,4 @@
-package untitled.infra;
+package project.infra;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
-import untitled.config.kafka.KafkaProcessor;
-import untitled.domain.*;
+import project.config.kafka.KafkaProcessor;
+import project.domain.*;
 
 //<<< Clean Arch / Inbound Adaptor
 @Service
@@ -18,7 +18,7 @@ import untitled.domain.*;
 public class PolicyHandler {
 
     @Autowired
-    ContractRepository contractRepository;
+    ProjectRepository projectRepository;
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}

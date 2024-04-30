@@ -1,13 +1,13 @@
-package untitled.domain;
+package project.domain;
 
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
-import untitled.ContractApplication;
-import untitled.domain.ContractCreated;
-import untitled.domain.ContractDeleted;
+import project.ContractApplication;
+import project.domain.ContractCreated;
+import project.domain.ContractDeleted;
 
 @Entity
 @Table(name = "Contract_table")
@@ -18,9 +18,9 @@ public class Contract {
     @Id
     private String name;
 
-    private LocalDate startDate;
+    private Date startDate;
 
-    private LocalDate endDate;
+    private Date endDate;
 
     @PostPersist
     public void onPostPersist() {

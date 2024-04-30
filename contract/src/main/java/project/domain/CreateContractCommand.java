@@ -1,11 +1,11 @@
-package untitled.domain;
+package project.domain;
 
 import java.time.LocalDate;
 import java.util.*;
 import lombok.Data;
 
 @Data
-public class UpdateContractCommand {
+public class CreateContractCommand {
 
     private String name;
     private LocalDate startDate;

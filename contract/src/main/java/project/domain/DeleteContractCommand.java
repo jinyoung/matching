@@ -1,4 +1,4 @@
-package untitled.domain;
+package project.domain;
 
 import java.time.LocalDate;
 import java.util.*;

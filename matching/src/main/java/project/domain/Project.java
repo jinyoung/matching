@@ -1,11 +1,11 @@
-package untitled.domain;
+package project.domain;
 
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
-import untitled.MatchingApplication;
+import project.MatchingApplication;
 
 @Entity
 @Table(name = "Project_table")
@@ -20,14 +20,17 @@ public class Project {
 
     private String duration;
 
+    @Embedded
     private Money budget;
 
     private String manager;
 
+    @Embedded
     private Email managerEmail;
 
     private String client;
 
+    @ElementCollection
     private List<File> files;
 
     public static ProjectRepository repository() {
