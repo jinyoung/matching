@@ -1,0 +1,114 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: matching
+  labels:
+    app: matching
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: matching
+  template:
+    metadata:
+      labels:
+        app: matching
+    spec:
+      containers:
+        - name: matching
+          image: username/matching:latest
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 계약
+  labels:
+    app: 계약
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: 계약
+  template:
+    metadata:
+      labels:
+        app: 계약
+    spec:
+      containers:
+        - name: 계약
+          image: username/계약:latest
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: matching
+  labels:
+    app: matching
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: matching
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: 계약
+  labels:
+    app: 계약
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: 계약
+

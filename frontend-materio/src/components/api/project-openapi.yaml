@@ -1,0 +1,202 @@
+openapi: 3.0.2
+info:
+  title: Project
+  version: 0.0.1
+  description: API definition of project
+  contact:
+    name: creator's name
+    url: http://creator.homepage.address
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+paths:
+  /projects:
+    summary: Global operations on projects
+    get:
+      tags:
+      - projects
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+              examples:
+                projects_json:
+                  value:
+                  -
+                    projectId: A string
+                    title: A string
+                    duration: A string
+                    budget: value
+                    manager: A string
+                    managerEmail: value
+                    client: A string
+                    files: value
+          description: Get list of projects
+      operationId: GetProject
+      summary: Get list of projects
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+            examples:
+              1:
+                value:
+                  projectId: A string
+                  title: A string
+                  duration: A string
+                  budget: value
+                  manager: A string
+                  managerEmail: value
+                  client: A string
+                  files: value
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+              examples:
+                1:
+                  value:
+                    projectId: A string
+                    title: A string
+                    duration: A string
+                    budget: value
+                    manager: A string
+                    managerEmail: value
+                    client: A string
+                    files: value
+          description: Changed Project
+      operationId: Post Project
+      summary: Post Project        
+  /projects/{id}:
+    summary: Specific operation on projects
+    get:
+      parameters:
+      - examples:
+          A string:
+            value: A string
+        name: id
+        description: Project name
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+              examples:
+                1:
+                  value:
+                    projectId: A string
+                    title: A string
+                    duration: A string
+                    budget: value
+                    manager: A string
+                    managerEmail: value
+                    client: A string
+                    files: value
+          description: projects with specified id
+      operationId: GetProjectById
+      summary: Get Project by id
+      description: Get Project by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+            examples:
+              1:
+                value:
+                  projectId: A string
+                  title: A string
+                  duration: A string
+                  budget: value
+                  manager: A string
+                  managerEmail: value
+                  client: A string
+                  files: value
+        required: true
+      parameters:
+      - examples:
+          1:
+            value: 1
+        name: projectId
+        description: Project name
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+              examples:
+                1:
+                  value:
+                    projectId: A string
+                    title: A string
+                    duration: A string
+                    budget: value
+                    manager: A string
+                    managerEmail: value
+                    client: A string
+                    files: value
+          description: Changed Project
+      operationId: PatchProject
+      summary: Patch existing Project
+    parameters:
+    - name: id
+      description: Project id
+      schema:
+        type: string
+      in: path
+      required: true
+components:
+  schemas:
+    Project:
+      title: Root Type for Project
+      description: The root of the Project type's schema.
+      type: object
+      properties:
+        projectId:
+          description: projectId of this Project
+          type: string
+        title:
+          description: title of this Project
+          type: string
+        duration:
+          description: duration of this Project
+          type: string
+        budget:
+          description: budget of this Project
+          type: string
+        manager:
+          description: manager of this Project
+          type: string
+        managerEmail:
+          description: managerEmail of this Project
+          type: string
+        client:
+          description: client of this Project
+          type: string
+        files:
+          description: files of this Project
+          type: string
+tags:
+  - name: Project
+    description: Project resource

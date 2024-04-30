@@ -1,0 +1,200 @@
+---
+paths:
+  '/contracts/{id}/uri':
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: name of this CreateContract
+                  type: string
+                startDate:
+                  description: startDate of this CreateContract
+                  type: string
+                endDate:
+                  description: endDate of this CreateContract
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateContract name
+          schema:
+            type: string
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contract'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    startDate: value
+                    endDate: value
+          description: CreateContract Operation
+      operationId: CreateContract
+      summary: CreateContract
+      description: CreateContract
+    summary: DeleteContract operation on contracts
+  /contracts:
+    summary: Global operations on contracts
+    get:
+      tags:
+        - contracts
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Contract'
+              examples:
+                contracts_json:
+                  value:
+                    - name: A string
+                      startDate: value
+                      endDate: value
+          description: Get list of contracts
+      operationId: GetContract
+      summary: Get list of contracts
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contract'
+            examples:
+              '1':
+                value:
+                  name: A string
+                  startDate: value
+                  endDate: value
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contract'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    startDate: value
+                    endDate: value
+          description: Changed Contract
+      operationId: Post Contract
+      summary: Post Contract
+  '/contracts/{id}':
+    summary: Specific operation on contracts
+    get:
+      parameters:
+        - examples:
+            A string:
+              value: A string
+          name: id
+          description: Contract name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contract'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    startDate: value
+                    endDate: value
+          description: contracts with specified id
+      operationId: GetContractById
+      summary: Get Contract by id
+      description: Get Contract by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contract'
+            examples:
+              '1':
+                value:
+                  name: A string
+                  startDate: value
+                  endDate: value
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: name
+          description: Contract name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contract'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    startDate: value
+                    endDate: value
+          description: Changed Contract
+      operationId: PatchContract
+      summary: Patch existing Contract
+    parameters:
+      - name: id
+        description: Contract id
+        schema:
+          type: string
+        in: path
+        required: true
+openapi: 3.0.2
+info:
+  title: Contract
+  version: 0.0.1
+  description: API definition of contract
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+components:
+  schemas:
+    Contract:
+      title: Root Type for Contract
+      description: The root of the Contract type's schema.
+      type: object
+      properties:
+        name:
+          description: name of this Contract
+          type: string
+        startDate:
+          description: startDate of this Contract
+          type: string
+        endDate:
+          description: endDate of this Contract
+          type: string
+tags:
+  - name: Contract
+    description: Contract resource
