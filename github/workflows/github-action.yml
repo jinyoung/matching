@@ -30,7 +30,7 @@ jobs:
       - name: Build Maven Projects
         run: |
           mvn clean package -f ./matching/pom.xml
-          mvn clean package -f ./계약/pom.xml
+          mvn clean package -f ./contract/pom.xml
 
       - name: Docker Build and push for Matching
         uses: docker/build-push-action@v4
@@ -42,13 +42,13 @@ jobs:
             ghcr.io/${{ github.repository }}/matching:latest
             ghcr.io/${{ github.repository }}/matching:${{ github.ref_name }}
             
-      - name: Docker Build and push for 계약
+      - name: Docker Build and push for Contract
         uses: docker/build-push-action@v4
         with:
-          context: ./계약
+          context: ./contract
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/계약:latest
-            ghcr.io/${{ github.repository }}/계약:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/contract:latest
+            ghcr.io/${{ github.repository }}/contract:${{ github.ref_name }}
             

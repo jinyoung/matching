@@ -43,22 +43,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 계약
+  name: contract
   labels:
-    app: 계약
+    app: contract
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: 계약
+      app: contract
   template:
     metadata:
       labels:
-        app: 계약
+        app: contract
     spec:
       containers:
-        - name: 계약
-          image: username/계약:latest
+        - name: contract
+          image: username/contract:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -102,13 +102,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: 계약
+  name: contract
   labels:
-    app: 계약
+    app: contract
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: 계약
+    app: contract
 

@@ -14,7 +14,7 @@ import {
                 to: '/projects',
             }"
         />
-        <VerticalNavSectionTitle :item="{ heading: '계약' }" />
+        <VerticalNavSectionTitle :item="{ heading: 'Contract' }" />
         <VerticalNavLink
             :item="{
                 title: '계약',

@@ -8,8 +8,8 @@ Vue.use(Router);
 import MatchingProjectManager from "./components/listers/MatchingProjectCards"
 import MatchingProjectDetail from "./components/listers/MatchingProjectDetail"
 
-import 계약ContractManager from "./components/listers/계약ContractCards"
-import 계약ContractDetail from "./components/listers/계약ContractDetail"
+import ContractContractManager from "./components/listers/ContractContractCards"
+import ContractContractDetail from "./components/listers/ContractContractDetail"
 
 
 export default new Router({
@@ -28,14 +28,14 @@ export default new Router({
             },
 
             {
-                path: '/계약/contracts',
-                name: '계약ContractManager',
-                component: 계약ContractManager
+                path: '/contracts/contracts',
+                name: 'ContractContractManager',
+                component: ContractContractManager
             },
             {
-                path: '/계약/contracts/:id',
-                name: '계약ContractDetail',
-                component: 계약ContractDetail
+                path: '/contracts/contracts/:id',
+                name: 'ContractContractDetail',
+                component: ContractContractDetail
             },
 
 

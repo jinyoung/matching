@@ -49,7 +49,7 @@
                     <v-list-item
                         class="px-2"
                         key="contracts"
-                        to="/계약/contracts"
+                        to="/contracts/contracts"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
@@ -147,7 +147,7 @@ export default {
                 title: '계약', 
                 description: '계약에 대한 설명', 
                 key: 'contracts', 
-                route: '/계약/contracts',
+                route: '/contracts/contracts',
                 ImageUrl: '',
             },
             

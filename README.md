@@ -21,7 +21,7 @@ cd /bin
 See the README.md files inside the each microservices directory:
 
 - matching
-- 계약
+- contract
 
 
 ## Run API Gateway (Spring Gateway)
@@ -35,7 +35,7 @@ mvn spring-boot:run
 ```
  http :8088/projects projectId="projectId" title="title" duration="duration" budget="budget" manager="manager" managerEmail="managerEmail" client="client" files="files" 
 ```
-- 계약
+- contract
 ```
  http :8088/contracts name="name" startDate="startDate" endDate="endDate" 
 ```
